@@ -1,0 +1,155 @@
+﻿<script src="~/js/sorttable.js"></script>
+
+@model iTunesSearch.Models.iTunesSearchModel
+
+@{
+    ViewData["Title"] = "iTunes Search";
+}
+
+<h2>iTunes Search</h2>
+
+<form asp-controller="Home" asp-action="Index" method="get">
+    <p>
+        What Are You Looking For?
+    </p>
+    <p>
+        <select name="ReturnLimit">
+            <option value="" disables selected hidden>Results</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="150">150</option>
+            <option value="200">200</option>
+        </select>
+        <select name="EntityString">
+            <option value="" disabled selected hidden>Category</option>
+            <optgroup label="Movies">
+                <option value="movie">Movie</option>
+                <option value="movieArtist">Director</option>
+            </optgroup>
+            <optgroup label="Podcasts">
+                <option value="podcastAuthor">Podcast Creator</option>
+                <option value="podcast">Podcast</option>
+            </optgroup>
+            <optgroup label="Music">
+                <option value="musicArtist">Artist</option>
+                <option value="musicTrack">Track</option>
+                <option value="album">Album</option>
+                <option value="musicVideo">Music Video</option>
+                <option value="mix">Mix</option>
+                <option value="song">Song Title</option>
+            </optgroup>
+            <optgroup label="Audio Books">
+                <option value="audiobook">Audio Book</option>
+            </optgroup>
+            <optgroup label="Short Films">
+                <option value="shortFilmArtist">Short Film Director</option>
+                <option value="shortFilm">Short Film</option>
+            </optgroup>
+            <optgroup label="TV Shows">
+                <option value="tvEpisode">TV Episode</option>
+                <option value="tvSeason">TV Season</option>
+            </optgroup>
+            <optgroup label="Software">
+                <option value="software">Software</option>
+                <option value="iPadSoftware">iPad Software</option>
+                <option value="macSoftware">Mac Software</option>
+            </optgroup>
+            <optgroup label="E">
+                <option value="ebook">E-Book</option>
+            </optgroup>
+        </select>
+        <input type="text" name="SearchString" placeholder="Search..." />
+        <input type="submit" value="Go" />
+    </p>
+</form>
+
+<style>
+    table#t1, th, td {
+        padding: 5px;
+        border: 2px solid black;
+    }
+</style>
+
+<table id="t1" class="sortable">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Collection</th>
+            <th>Artist</th>
+            <th>Price</th>
+            <th>Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.results)
+        {
+            <tr>
+                <!--Displays Track Name-->
+                <td>
+                    @Html.DisplayFor(modelItem => item.trackName)
+                </td>
+                <!--Displays Collection Name-->
+                <td>
+                    @Html.DisplayFor(modelItem => item.collectionName)
+                </td>
+                <!--Displays Artist Name-->
+                <td>
+                    @Html.DisplayFor(modelItem => item.artistName)
+                </td>
+                <!--Displays price. If item is a track, displays track price, if item is a collection, displays collection price
+                    if item has a formatted price, displays formatted price, if none of the above, displays N/A-->
+                @if (item.trackPrice > -1)
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.trackPrice)
+                    </td>
+                }
+                else if (item.collectionPrice > -1)
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.collectionPrice)
+                    </td>
+                }
+                else if (item.formattedPrice != null)
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.formattedPrice)
+                    </td>
+                }
+                else
+                {
+                    <td>N/A</td>
+                }
+                <!--End Price if-else statements-->
+                <!--Displays itunes url. If item is a track, displays link to track url, if item is a collection, displays link
+                    to collection url, if item is an artist, displays link to artist url, if none of the above, displays
+                    "Sorry, Link Not Available"-->
+                @if (item.trackViewUrl != null)
+                {
+                    <td>
+                        <a href="@Html.DisplayFor(modelItem => item.trackViewUrl)">Get It</a>
+                    </td>
+                }
+                else if (item.collectionViewUrl != null)
+                {
+                    <td>
+                        <a href="@Html.DisplayFor(modelItem => item.collectionViewUrl)">Get It</a>
+                    </td>
+                }
+                else if (item.artistLinkUrl != null)
+                {
+                    <td>
+                        <a href="@Html.DisplayFor(modelItem => item.artistLinkUrl)">Get It</a>
+                    </td>
+                }
+                else
+                {
+                    <td>Sorry, Link Not Available</td>
+                }
+                <!--End URL if-else statements-->
+            </tr>
+
+        }
+    </tbody>
+</table>

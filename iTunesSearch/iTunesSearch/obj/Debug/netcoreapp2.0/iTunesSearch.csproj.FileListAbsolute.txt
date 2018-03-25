@@ -1,0 +1,11 @@
+C:\Users\Zach\source\repos\iTunesSearch\iTunesSearch\bin\Debug\netcoreapp2.0\iTunesSearch.deps.json
+C:\Users\Zach\source\repos\iTunesSearch\iTunesSearch\bin\Debug\netcoreapp2.0\iTunesSearch.runtimeconfig.json
+C:\Users\Zach\source\repos\iTunesSearch\iTunesSearch\bin\Debug\netcoreapp2.0\iTunesSearch.runtimeconfig.dev.json
+C:\Users\Zach\source\repos\iTunesSearch\iTunesSearch\bin\Debug\netcoreapp2.0\iTunesSearch.dll
+C:\Users\Zach\source\repos\iTunesSearch\iTunesSearch\bin\Debug\netcoreapp2.0\iTunesSearch.pdb
+C:\Users\Zach\source\repos\iTunesSearch\iTunesSearch\obj\Debug\netcoreapp2.0\iTunesSearch.csprojResolveAssemblyReference.cache
+C:\Users\Zach\source\repos\iTunesSearch\iTunesSearch\obj\Debug\netcoreapp2.0\iTunesSearch.csproj.CoreCompileInputs.cache
+C:\Users\Zach\source\repos\iTunesSearch\iTunesSearch\obj\Debug\netcoreapp2.0\iTunesSearch.AssemblyInfoInputs.cache
+C:\Users\Zach\source\repos\iTunesSearch\iTunesSearch\obj\Debug\netcoreapp2.0\iTunesSearch.AssemblyInfo.cs
+C:\Users\Zach\source\repos\iTunesSearch\iTunesSearch\obj\Debug\netcoreapp2.0\iTunesSearch.dll
+C:\Users\Zach\source\repos\iTunesSearch\iTunesSearch\obj\Debug\netcoreapp2.0\iTunesSearch.pdb
